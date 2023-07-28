@@ -1,4 +1,4 @@
-function MIMM_outputs = MIMM(dictionary, QSM, Brain_Mask, iField, TE,orientation_strategy,varargin)
+function MIMM_outputs = MIMM(dictionary,lambda_chi, QSM, Brain_Mask, iField, TE,orientation_strategy,varargin)
 % Mert Sisman 7/27/2023
 % 1 = Basic MIMM, 2 = Orientation Informed MIMM
 if nargin < 8 &&  orientation_strategy == "orientation_informed"
@@ -28,10 +28,6 @@ switch orientation_strategy
     theta = round((theta)/theta_scale)*theta_scale;
 
 end
-%% 
-% Weighting factor between the magnitude and QSM term. Determined by
-% L-curve.
-lambda_chi = 0.015;
 
 %% Dictionary Preparation
 % Interpolate the dictionary decay curves to match the data acquisition
