@@ -20,22 +20,25 @@ load('QSM.mat')
 load('theta.mat')
 load('iField.mat','iField','TE')
 
-
+%%
+% Weighting factor between the magnitude and QSM term. Determined by
+% L-curve. 
+lambda_chi = 0.015;
 %% Load the stochastic dictionary
 load('MIMM_dictionary_stochastic.mat')
 
 % Basic MIMM
 orientation_strategy = "basic"; 
-MIMM_basic = MIMM(dictionary, QSM, Brain_Mask, iField, TE,orientation_strategy);
+MIMM_basic = MIMM(dictionary, lambda_chi, QSM, Brain_Mask, iField, TE,orientation_strategy);
 
 % DTI Orientation Informed MIMM
 orientation_strategy = "orientation_informed"; 
-MIMM_DTI = MIMM(dictionary, QSM, Brain_Mask, iField, TE,orientation_strategy,FA_DTI,theta_DTI);
+MIMM_DTI = MIMM(dictionary, lambda_chi, QSM, Brain_Mask, iField, TE,orientation_strategy,FA_DTI,theta_DTI);
 
 % Atlas Orientation Informed MIMM
 
 orientation_strategy = "orientation_informed"; 
-MIMM_Atlas = MIMM(dictionary, QSM, Brain_Mask, iField, TE,orientation_strategy,FA_atlas,theta_atlas);
+MIMM_Atlas = MIMM(dictionary, lambda_chi, QSM, Brain_Mask, iField, TE,orientation_strategy,FA_atlas,theta_atlas);
 
 save("Example_Results\stochastic_MIMM_results.mat","MIMM_Atlas","MIMM_DTI","MIMM_basic")
 
@@ -46,15 +49,15 @@ load('MIMM_dictionary_deterministic.mat')
 
 % Basic MIMM
 orientation_strategy = "basic"; 
-MIMM_basic = MIMM(dictionary, QSM, Brain_Mask, iField, TE,orientation_strategy);
+MIMM_basic = MIMM(dictionary, lambda_chi, QSM, Brain_Mask, iField, TE,orientation_strategy);
 
 % DTI Orientation Informed MIMM
 orientation_strategy = "orientation_informed"; 
-MIMM_DTI = MIMM(dictionary, QSM, Brain_Mask, iField, TE,orientation_strategy,FA_DTI,theta_DTI);
+MIMM_DTI = MIMM(dictionary, lambda_chi, QSM, Brain_Mask, iField, TE,orientation_strategy,FA_DTI,theta_DTI);
 
 % Atlas Orientation Informed MIMM
 
 orientation_strategy = "orientation_informed"; 
-MIMM_Atlas = MIMM(dictionary, QSM, Brain_Mask, iField, TE,orientation_strategy,FA_atlas,theta_atlas);
+MIMM_Atlas = MIMM(dictionary, lambda_chi, QSM, Brain_Mask, iField, TE,orientation_strategy,FA_atlas,theta_atlas);
 
 save("Example_Results\deterministic_MIMM_results.mat","MIMM_Atlas","MIMM_DTI","MIMM_basic")
