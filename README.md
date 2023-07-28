@@ -7,4 +7,4 @@ The code requires mGRE magnitude data, QSM map, and weighting factor lambda_chi 
 
 An example dataset, corresponding output maps, and dictionaries can be downloaded [here](https://zenodo.org/record/8193673).
 
-If you want to process your own data, the suggested toolboxes for QSM reconstruction is [MEDI Toolbox](https://pre.weill.cornell.edu/mri/pages/qsm.html), and for DTI reconstruction [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL).
+If you want to process your own data, the suggested toolboxes for QSM reconstruction is [MEDI Toolbox](https://pre.weill.cornell.edu/mri/pages/qsm.html), and for DTI reconstruction is [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL).
