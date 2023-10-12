@@ -1,6 +1,5 @@
 function MIMM_outputs = MIMM(dictionary,lambda_chi, QSM, Brain_Mask, iField, TE,orientation_strategy,varargin)
 % Mert Sisman 7/27/2023
-% 1 = Basic MIMM, 2 = Orientation Informed MIMM
 if nargin < 8 &&  orientation_strategy == "orientation_informed"
     error('Theta and FA maps are required for orientation informed MIMM.');
 elseif nargin == 8 &&  orientation_strategy == "orientation_informed"
@@ -26,6 +25,8 @@ switch orientation_strategy
     % Round both DTI and dictionary theta values to match them exactly.
     theta_scale = 5;
     theta = round((theta)/theta_scale)*theta_scale;
+    otherwise
+    error('Please enter a valid orientation_strategy (basic or orientation_informed).');
 
 end
 
