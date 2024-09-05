@@ -2,7 +2,7 @@ function MIMM_outputs = MIMM(dictionary,lambda_chi, QSM, Brain_Mask, iField, TE,
 % Mert Sisman 7/27/2023
 if nargin < 9 &&  orientation_strategy == "orientation_informed"
     error('Theta and FA maps are required for orientation informed MIMM.');
-elseif nargin == 8 &&  orientation_strategy == "orientation_informed"
+elseif nargin == 9 &&  orientation_strategy == "orientation_informed"
     FA = varargin{1};
     theta = varargin{2};
 end
