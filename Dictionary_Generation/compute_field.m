@@ -25,8 +25,6 @@ inner_region = double(abs(r) < r_i);
 annular_region = double((abs(r) >= r_i) .* (abs(r) < r_o));
 outer_region = double(abs(r) >= r_o);
 
-phi = imrotate(phi,90);
-
 %%
 %Field due to isotropic susceptibility in 3 regions.
 delta_f_outer_iso = (chi_iso .* sind(theta)^2 .* cosd(2*phi)) ./ 2 .* ((r_o^2 - r_i^2)./(r).^2);
